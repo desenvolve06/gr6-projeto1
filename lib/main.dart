@@ -69,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
+
   Color darkGreenColor = const Color(0xFF006400);
   @override
   Widget build(BuildContext context) {
@@ -79,9 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      
       appBar: AppBar(
-        
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
@@ -114,8 +113,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+              style: const TextStyle(
+                fontSize: 34,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 30, 255, 0),
+              ),
+            )
           ],
         ),
       ),
