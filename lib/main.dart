@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:desenvolvegr6/exercises/exercise_2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -31,7 +34,9 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
         useMaterial3: true,
-        fontFamily: GoogleFonts.poppins().fontFamily,
+        fontFamily: GoogleFonts
+            .poppins()
+            .fontFamily,
       ),
       home: const MyHomePage(title: 'Desenvolve 6'),
     );
@@ -41,15 +46,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -57,16 +53,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String _result = 'Result';
   int _counter = 0;
+  Random random = Random();
 
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter++;
+      _result = _counter.toString();
+    });
+  }
+
+  void _challenge2() {
+    int a = random.nextInt(10);
+    int b = random.nextInt(10);
+    int c = random.nextInt(10);
+    setState(() {
+      String result = checkSum(a, b, c);
+      _result = result;
     });
   }
 
@@ -109,10 +113,10 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             const Text(
-              'Vezes que o botão foi pressionado:',
+              'Challenge 2',
             ),
             Text(
-              '$_counter',
+              _result,
               style: const TextStyle(
                 fontSize: 34,
                 fontWeight: FontWeight.bold,
@@ -123,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _challenge2,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
