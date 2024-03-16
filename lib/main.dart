@@ -1,5 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'exercises/exercise_3.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,7 +61,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String _result = 'Result';
   int _counter = 0;
+  Random random = Random();
+
 
   void _incrementCounter() {
     setState(() {
@@ -67,6 +74,14 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+    });
+  }
+
+  void _challenge3() {
+    int number = random.nextInt(10);
+    setState(() {
+      String result = calculateFactorial(number);
+      _result = result.toString();
     });
   }
 
@@ -92,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Row(
+        child: Column(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -109,10 +124,10 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             const Text(
-              'Vezes que o botão foi pressionado:',
+              'Challenge 3',
             ),
             Text(
-              '$_counter',
+              _result,
               style: const TextStyle(
                 fontSize: 34,
                 fontWeight: FontWeight.bold,
@@ -123,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _challenge3,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
