@@ -56,6 +56,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String _result = 'Result';
+  String _textChallenge = '';
   int _counter = 0;
   Random random = Random();
 
@@ -72,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
     int c = random.nextInt(10);
     setState(() {
       String result = checkSum(a, b, c);
+      _textChallenge = 'Challenge 2';
       _result = result;
     });
   }
@@ -80,6 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
     int number = random.nextInt(10);
     setState(() {
       String result = calculateFactorial(number);
+      _textChallenge = 'Challenge 3';
       _result = result.toString();
     });
   }
@@ -122,8 +125,8 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            const Text(
-              'Challenge 2',
+            Text(
+             _textChallenge,
             ),
             Text(
               _result,
