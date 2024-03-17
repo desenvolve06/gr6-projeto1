@@ -141,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: const TextStyle(
                 fontSize: 34,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 0, 0, 0),
+                color: Color.fromARGB(255, 30, 255, 0),
               ),
             )
           ],
