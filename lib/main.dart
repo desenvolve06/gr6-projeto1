@@ -121,17 +121,17 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _challenge12() {
-    List<int> numeros = [1, 2, 3];
+    List<int> numbers = [1, 2, 3];
 
-    List<int> quadrados = [];
+    List<int> squares = [];
 
-    for (int numero in numeros) {
-      quadrados.add(numero * numero);
+    for (int number in numbers) {
+      squares.add(number * number);
     }
 
     setState(() {
       _textChallenge = 'Challenge 12';
-      _result = quadrados.toString();
+      _result = squares.toString();
     });
   }
 
