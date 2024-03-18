@@ -1,8 +1,12 @@
+// ignore: unused_import
+import 'dart:ffi';
 import 'dart:math';
 
 import 'package:desenvolvegr6/exercises/exercise_11.dart';
 import 'package:desenvolvegr6/exercises/exercise_2.dart';
 import 'package:desenvolvegr6/exercises/exercise_5.dart';
+import 'package:desenvolvegr6/exercises/exercise_8.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -70,6 +74,20 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge1() {
+    setState(() {
+      _textChallenge = "Challenge 1";
+      int num1 = random.nextInt(10);
+      int num2 = random.nextInt(10);
+      if (num1 == num2) {
+        _result = "Os numeros são iguais";
+      } else {
+        String maiorValor = max(num1, num2).toString();
+        _result = "O maior valor entre $num1 e $num2 é: $maiorValor ";
+      }
+    });
+  }
+
   void _challenge2() {
     int a = random.nextInt(10);
     int b = random.nextInt(10);
@@ -112,6 +130,18 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge8() {
+    int value1 = random.nextInt(100);
+    int value2 = random.nextInt(100);
+    int value3 = random.nextInt(100);
+
+    setState(() {
+      String result = descendingOrder(value1, value2, value3);
+      _textChallenge = 'Challenge 8';
+      _result = result;
+    });
+  }
+
   void _challenge11() {
     int numero = random.nextInt(10);
     setState(() {
@@ -121,17 +151,36 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _challenge18() {
+  void _challenge16(String palavra) {
+    List<String> palavraArray = palavra.toLowerCase().split('');
+    for (int i = 0; i < palavraArray.length; i++) {
+      if (palavraArray[i] == " ") {
+        palavraArray.removeAt(i);
+      }
+    }
+    List<String> palavraAoContrario = palavraArray.reversed.toList();
+
     setState(() {
-      List<dynamic> result =
-          challenge18(); // Chamando a função e recebendo a palavra, frase e resultado
-      String palavra = result[0]; // Obtendo a palavra da lista retornada
-      String frase = result[1]; // Obtendo a frase da lista retornada
-      int resultado = result[2]; // Obtendo o resultado da lista retornada
-      _textChallenge = 'Challenge 18';
-      _result =
-          'Palavra: $palavra\nFrase: $frase\nOcorrências: $resultado'; // Atualizando o valor de _result
+      _textChallenge = "Challenge 16";
+      if (palavraAoContrario.join('') == palavraArray.join('')) {
+        _result = "A palavra ou frase $palavra é Palíndromo";
+      } else {
+        _result = "A palavra ou frase $palavra não é Palíndromo";
+      }
     });
+
+    void _challenge18() {
+      setState(() {
+        List<dynamic> result =
+            challenge18(); // Chamando a função e recebendo a palavra, frase e resultado
+        String palavra = result[0]; // Obtendo a palavra da lista retornada
+        String frase = result[1]; // Obtendo a frase da lista retornada
+        int resultado = result[2]; // Obtendo o resultado da lista retornada
+        _textChallenge = 'Challenge 18';
+        _result =
+            'Palavra: $palavra\nFrase: $frase\nOcorrências: $resultado'; // Atualizando o valor de _result
+      });
+    }
   }
 
   Color darkGreenColor = const Color(0xFF006400);
