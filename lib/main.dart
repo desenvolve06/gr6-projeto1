@@ -73,6 +73,20 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+    void _challenge1() {
+    setState(() {
+      _textChallenge = "Challenge 1";
+      int num1 = random.nextInt(10);
+      int num2 = random.nextInt(10);
+      if (num1 == num2) {
+        _result = "Os numeros são iguais";
+      } else {
+        String maiorValor = max(num1, num2).toString();
+        _result = "O maior valor entre $num1 e $num2 é: $maiorValor ";
+      }
+    });
+  }
+
   void _challenge2() {
     int a = random.nextInt(10);
     int b = random.nextInt(10);
@@ -189,7 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge8,
+        onPressed: _challenge1,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
