@@ -4,6 +4,7 @@ import 'dart:math';
 
 import 'package:desenvolvegr6/exercises/exercise_11.dart';
 import 'package:desenvolvegr6/exercises/exercise_2.dart';
+import 'package:desenvolvegr6/exercises/exercise_5.dart';
 import 'package:desenvolvegr6/exercises/exercise_8.dart';
 
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'exercises/exercise_3.dart';
 import 'exercises/exercise_4.dart';
+import 'exercises/exercise_5.dart';
 
 void main() {
   runApp(const MyApp());
@@ -98,6 +100,18 @@ class _MyHomePageState extends State<MyHomePage> {
       String result = checknumber(minNumber, maxNumber);
       _textChallenge = 'Challenge 4';
       _result = result.toString();
+    });
+  }
+
+  void _challenge5() {
+    int numberA = 5;
+    int numberB = 5;
+    int randomNumberA = random.nextInt(numberA);
+    int randomNumberB = random.nextInt(numberB);
+    setState(() {
+      String result = checkTwoNumbers(randomNumberA, randomNumberB);
+      _textChallenge = 'Challenge 5';
+      result = result.toString();
     });
   }
 
