@@ -36,9 +36,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
         useMaterial3: true,
-        fontFamily: GoogleFonts
-            .poppins()
-            .fontFamily,
+        fontFamily: GoogleFonts.poppins().fontFamily,
       ),
       home: const MyHomePage(title: 'Desenvolve 6'),
     );
@@ -87,6 +85,20 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge7() {
+    double salarioMinimo = 1412.00;
+    double salarioUsuario = 2500.00;
+
+    double salariosMinimos = salarioUsuario / salarioMinimo;
+    String result =
+        'The user earns ${salariosMinimos.toStringAsFixed(2)} minimum wages.';
+
+    setState(() {
+      _textChallenge = 'Challenge 7';
+      _result = result;
+    });
+  }
+
   Color darkGreenColor = const Color(0xFF006400);
   @override
   Widget build(BuildContext context) {
@@ -126,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             Text(
-             _textChallenge,
+              _textChallenge,
             ),
             Text(
               _result,
@@ -140,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge3,
+        onPressed: _challenge7,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
