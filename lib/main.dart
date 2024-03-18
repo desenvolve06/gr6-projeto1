@@ -9,6 +9,8 @@ import 'package:desenvolvegr6/exercises/exercise_8.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'exercises/exercise_14.dart';
+import 'exercises/exercise_10.dart';
 import 'exercises/exercise_18.dart';
 import 'exercises/exercise_3.dart';
 import 'exercises/exercise_4.dart';
@@ -140,6 +142,20 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge7() {
+    double salarioMinimo = 1412.00;
+    double salarioUsuario = 2500.00;
+
+    double salariosMinimos = salarioUsuario / salarioMinimo;
+    String result =
+        'The user earns ${salariosMinimos.toStringAsFixed(2)} minimum wages.';
+
+    setState(() {
+      _textChallenge = 'Challenge 7';
+      _result = result;
+    });
+  }
+
   void _challenge8() {
     int value1 = random.nextInt(100);
     int value2 = random.nextInt(100);
@@ -164,11 +180,46 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge10() {
+    setState(() {
+      List<dynamic> result = challenge10();
+      String nome = result[0];
+      int idade = result[1];
+      String mensagem = result[2];
+      _textChallenge = 'Challenge 10';
+      _result = '$nome - $mensagem';
+    });
+  }
+
   void _challenge11() {
     int numero = random.nextInt(10);
     setState(() {
       String result = showMultiplicationTable(numero);
       _textChallenge = 'Challenge 11';
+      _result = result.toString();
+    });
+  }
+
+  void _challenge12() {
+    List<int> numbers = [1, 2, 3];
+
+    List<int> squares = [];
+
+    for (int number in numbers) {
+      squares.add(number * number);
+    }
+
+    setState(() {
+      _textChallenge = 'Challenge 12';
+      _result = squares.toString();
+    });
+  }
+
+  void _challenge14() {
+    List<int> randomNumbers = generateRandomNumbers(10);
+    setState(() {
+      String result = findMinMax(randomNumbers);
+      _textChallenge = 'Challenge 14';
       _result = result.toString();
     });
   }
@@ -226,6 +277,39 @@ class _MyHomePageState extends State<MyHomePage> {
       _textChallenge = 'Challenge 18';
       _result =
           'Palavra: $palavra\nFrase: $frase\nOcorrências: $resultado'; // Atualizando o valor de _result
+    });
+  }
+
+  void _challenge19() {
+    List<String> words = [
+      'foR',
+      'scream',
+      'CaRs',
+      'poTatos',
+      'racs',
+      'creams',
+      'scar',
+      'four'
+    ];
+
+    Map<String, List<String>> groups = {};
+
+    for (String word in words) {
+      List<String> characters = word.toLowerCase().split('');
+      characters.sort();
+      String sortedWord = characters.join();
+
+      if (!groups.containsKey(sortedWord)) {
+        groups[sortedWord] = [];
+      }
+      groups[sortedWord]!.add(word);
+    }
+
+    List<List<String>> result = groups.values.toList();
+
+    setState(() {
+      _textChallenge = 'Challenge 19';
+      _result = result.toString();
     });
   }
 
