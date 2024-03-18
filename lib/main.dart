@@ -81,10 +81,10 @@ class _MyHomePageState extends State<MyHomePage> {
       int num1 = random.nextInt(10);
       int num2 = random.nextInt(10);
       if (num1 == num2) {
-        _result = "Os numeros são iguais";
+        _result = "The numbers are the same";
       } else {
-        String maiorValor = max(num1, num2).toString();
-        _result = "O maior valor entre $num1 e $num2 é: $maiorValor ";
+        String biggerValue = max(num1, num2).toString();
+        _result = "The bigger value between $num1 and $num2 is: $biggerValue ";
       }
     });
   }
@@ -170,6 +170,17 @@ class _MyHomePageState extends State<MyHomePage> {
       String result = showMultiplicationTable(numero);
       _textChallenge = 'Challenge 11';
       _result = result.toString();
+    });
+  }
+
+    void _challenge15(){
+    int limit = Random().nextInt(10);
+    List<int> numbers = [];
+  for (int i = 0; i <= limit; i++) {
+    numbers.add(i);
+  }
+    setState(() {
+      _result = "The generated limit is ${limit.toString()} and the list is: ${numbers.toString()}";
     });
   }
 
