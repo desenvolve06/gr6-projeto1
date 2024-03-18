@@ -246,6 +246,39 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge19() {
+    List<String> words = [
+      'foR',
+      'scream',
+      'CaRs',
+      'poTatos',
+      'racs',
+      'creams',
+      'scar',
+      'four'
+    ];
+
+    Map<String, List<String>> groups = {};
+
+    for (String word in words) {
+      List<String> characters = word.toLowerCase().split('');
+      characters.sort();
+      String sortedWord = characters.join();
+
+      if (!groups.containsKey(sortedWord)) {
+        groups[sortedWord] = [];
+      }
+      groups[sortedWord]!.add(word);
+    }
+
+    List<List<String>> result = groups.values.toList();
+
+    setState(() {
+      _textChallenge = 'Challenge 19';
+      _result = result.toString();
+    });
+  }
+
   Color darkGreenColor = const Color(0xFF006400);
   
   @override
@@ -300,7 +333,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge7,
+        onPressed: _challenge19,
+
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
