@@ -6,6 +6,7 @@ import 'package:desenvolvegr6/exercises/exercise_5.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'exercises/exercise_18.dart';
 import 'exercises/exercise_3.dart';
 import 'exercises/exercise_4.dart';
 import 'exercises/exercise_5.dart';
@@ -99,25 +100,37 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-
   void _challenge5() {
     int numberA = 5;
     int numberB = 5;
-    int randomNumberA =  random.nextInt(numberA) ;
-    int randomNumberB =  random.nextInt(numberB) ;
+    int randomNumberA = random.nextInt(numberA);
+    int randomNumberB = random.nextInt(numberB);
     setState(() {
       String result = checkTwoNumbers(randomNumberA, randomNumberB);
       _textChallenge = 'Challenge 5';
       result = result.toString();
     });
   }
-  
+
   void _challenge11() {
     int numero = random.nextInt(10);
     setState(() {
       String result = showMultiplicationTable(numero);
       _textChallenge = 'Challenge 11';
       _result = result.toString();
+    });
+  }
+
+  void _challenge18() {
+    setState(() {
+      List<dynamic> result =
+          challenge18(); // Chamando a função e recebendo a palavra, frase e resultado
+      String palavra = result[0]; // Obtendo a palavra da lista retornada
+      String frase = result[1]; // Obtendo a frase da lista retornada
+      int resultado = result[2]; // Obtendo o resultado da lista retornada
+      _textChallenge = 'Challenge 18';
+      _result =
+          'Palavra: $palavra\nFrase: $frase\nOcorrências: $resultado'; // Atualizando o valor de _result
     });
   }
 
@@ -174,7 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge5,
+        onPressed: _challenge18,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
