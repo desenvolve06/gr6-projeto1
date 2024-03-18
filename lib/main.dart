@@ -173,6 +173,21 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge12() {
+    List<int> numbers = [1, 2, 3];
+
+    List<int> squares = [];
+
+    for (int number in numbers) {
+      squares.add(number * number);
+    }
+
+    setState(() {
+      _textChallenge = 'Challenge 12';
+      _result = squares.toString();   
+    });
+  }
+  
     void _challenge15(){
     int limit = Random().nextInt(10);
     List<int> numbers = [];
@@ -271,7 +286,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge6,
+        onPressed: _challenge12,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
