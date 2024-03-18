@@ -79,10 +79,10 @@ class _MyHomePageState extends State<MyHomePage> {
       int num1 = random.nextInt(10);
       int num2 = random.nextInt(10);
       if (num1 == num2) {
-        _result = "Os numeros são iguais";
+        _result = "The numbers are the same";
       } else {
-        String maiorValor = max(num1, num2).toString();
-        _result = "O maior valor entre $num1 e $num2 é: $maiorValor ";
+        String biggerValue = max(num1, num2).toString();
+        _result = "The bigger value between $num1 and $num2 is: $biggerValue ";
       }
     });
   }
