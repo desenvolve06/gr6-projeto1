@@ -3,9 +3,9 @@ import 'dart:ffi';
 import 'dart:math';
 
 import 'package:desenvolvegr6/exercises/exercise_11.dart';
+import 'package:desenvolvegr6/exercises/exercise_17.dart';
 import 'package:desenvolvegr6/exercises/exercise_2.dart';
 import 'package:desenvolvegr6/exercises/exercise_8.dart';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -255,6 +255,18 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge17() {
+    int value = random.nextInt(100);
+    setState(() {
+      if (isPrime(value)) {
+        _result = '$value is PRIME.';
+      } else {
+        _result = '$value is not a prime!';
+      }
+      _textChallenge = 'Challenge 17';
+    });
+  }
+
   void _challenge18() {
     setState(() {
       List<dynamic> result =
@@ -355,7 +367,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge14,
+        onPressed: _challenge17,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
