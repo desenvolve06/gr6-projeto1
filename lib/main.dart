@@ -99,25 +99,39 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-
   void _challenge5() {
     int numberA = 5;
     int numberB = 5;
-    int randomNumberA =  random.nextInt(numberA) ;
-    int randomNumberB =  random.nextInt(numberB) ;
+    int randomNumberA = random.nextInt(numberA);
+    int randomNumberB = random.nextInt(numberB);
     setState(() {
       String result = checkTwoNumbers(randomNumberA, randomNumberB);
       _textChallenge = 'Challenge 5';
       result = result.toString();
     });
   }
-  
+
   void _challenge11() {
     int numero = random.nextInt(10);
     setState(() {
       String result = showMultiplicationTable(numero);
       _textChallenge = 'Challenge 11';
       _result = result.toString();
+    });
+  }
+
+  void _challenge12() {
+    List<int> numeros = [1, 2, 3];
+
+    List<int> quadrados = [];
+
+    for (int numero in numeros) {
+      quadrados.add(numero * numero);
+    }
+
+    setState(() {
+      _textChallenge = 'Challenge 12';
+      _result = quadrados.toString();
     });
   }
 
@@ -174,7 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge5,
+        onPressed: _challenge12,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
