@@ -9,6 +9,7 @@ import 'package:desenvolvegr6/exercises/exercise_8.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'exercises/exercise_13.dart';
 import 'exercises/exercise_14.dart';
 import 'exercises/exercise_10.dart';
 import 'exercises/exercise_18.dart';
@@ -215,6 +216,14 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge13() {
+    List<int> numbers = List.generate(10, (_) => Random().nextInt(100));
+    setState(() {
+      _textChallenge = 'Challenge 13';
+      _result = countEvenAndOddNumbers(numbers);
+    });
+  }
+
   void _challenge14() {
     List<int> randomNumbers = generateRandomNumbers(10);
     setState(() {
@@ -367,7 +376,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge17,
+        onPressed: _challenge13,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
