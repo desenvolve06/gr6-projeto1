@@ -150,26 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _challenge16(String palavra) {
-  List<String> palavraArray = palavra.toLowerCase().split('');
-  for (int i = 0; i < palavraArray.length; i++) {
-    if (palavraArray[i] == " ") {
-      palavraArray.removeAt(i);
-    }
-  }
-  List<String> palavraAoContrario = palavraArray.reversed.toList();
-
-  setState(() {
-    _textChallenge = "Challenge 16";
-    if (palavraAoContrario.join('') == palavraArray.join('')) {
-    _result = "A palavra ou frase $palavra é Palíndromo";
-  } else {
-    _result = "A palavra ou frase $palavra não é Palíndromo";
-  }
-  });
-
-}
-  Color darkGreenColor = const Color(0xFF006400);
+  Color darkGreenColor = Color.fromARGB(255, 7, 231, 175);
   @override
   Widget build(BuildContext context) {
 // This method is rerun every time setState is called, for instance as done
@@ -222,7 +203,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _challenge16("A cara rajada da jararaca"),
         onPressed: _challenge1,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
