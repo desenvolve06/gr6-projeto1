@@ -139,6 +139,20 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+    void _challenge7() {
+    double salarioMinimo = 1412.00;
+    double salarioUsuario = 2500.00;
+
+    double salariosMinimos = salarioUsuario / salarioMinimo;
+    String result =
+        'The user earns ${salariosMinimos.toStringAsFixed(2)} minimum wages.';
+
+    setState(() {
+      _textChallenge = 'Challenge 7';
+      _result = result;
+    });
+  }
+
   void _challenge8() {
     int value1 = random.nextInt(100);
     int value2 = random.nextInt(100);
