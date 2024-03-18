@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'exercises/exercise_3.dart';
+import 'exercises/exercise_4.dart';
 
 void main() {
   runApp(const MyApp());
@@ -81,6 +82,16 @@ class _MyHomePageState extends State<MyHomePage> {
     int number = random.nextInt(10);
     setState(() {
       String result = calculateFactorial(number);
+      _textChallenge = 'Challenge 3';
+      _result = result.toString();
+    });
+  }
+
+  void _challenge4() {
+    int minNumber = -100;
+    int maxNumber = 100;
+    setState(() {
+      String result = checknumber(minNumber, maxNumber);
       _textChallenge = 'Challenge 3';
       _result = result.toString();
     });
