@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:desenvolvegr6/exercises/exercise_11.dart';
 import 'package:desenvolvegr6/exercises/exercise_2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
+// This is the theme of your application.
         //
         // TRY THIS: Try running your application with "flutter run". You'll see
         // the application has a purple toolbar. Then, without quitting the app,
@@ -37,9 +38,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
         useMaterial3: true,
-        fontFamily: GoogleFonts
-            .poppins()
-            .fontFamily,
+        fontFamily: GoogleFonts.poppins().fontFamily,
       ),
       home: const MyHomePage(title: 'Desenvolve 6'),
     );
@@ -93,7 +92,16 @@ class _MyHomePageState extends State<MyHomePage> {
     int maxNumber = 100;
     setState(() {
       String result = checknumber(minNumber, maxNumber);
-      _textChallenge = 'Challenge 3';
+      _textChallenge = 'Challenge 4';
+      _result = result.toString();
+    });
+  }
+
+  void _challenge11() {
+    int numero = random.nextInt(10);
+    setState(() {
+      String result = showMultiplicationTable(numero);
+      _textChallenge = 'Challenge 11';
       _result = result.toString();
     });
   }
@@ -101,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Color darkGreenColor = const Color(0xFF006400);
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
+// This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
     // The Flutter framework has been optimized to make rerunning build methods
@@ -109,19 +117,19 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
+// TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
         backgroundColor: darkGreenColor,
-        // Here we take the value from the MyHomePage object that was created by
+// Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
+// Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
+// Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
           //
@@ -137,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             Text(
-             _textChallenge,
+              _textChallenge,
             ),
             Text(
               _result,
@@ -151,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge4,
+        onPressed: _challenge11,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
