@@ -211,7 +211,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _result = result.toString();
     });
   }
-  
+
     void _challenge15(){
     int limit = Random().nextInt(10);
     List<int> numbers = [];
@@ -253,6 +253,39 @@ class _MyHomePageState extends State<MyHomePage> {
       _textChallenge = 'Challenge 18';
       _result =
           'Palavra: $palavra\nFrase: $frase\nOcorrências: $resultado'; // Atualizando o valor de _result
+    });
+  }
+
+  void _challenge19() {
+    List<String> words = [
+      'foR',
+      'scream',
+      'CaRs',
+      'poTatos',
+      'racs',
+      'creams',
+      'scar',
+      'four'
+    ];
+
+    Map<String, List<String>> groups = {};
+
+    for (String word in words) {
+      List<String> characters = word.toLowerCase().split('');
+      characters.sort();
+      String sortedWord = characters.join();
+
+      if (!groups.containsKey(sortedWord)) {
+        groups[sortedWord] = [];
+      }
+      groups[sortedWord]!.add(word);
+    }
+
+    List<List<String>> result = groups.values.toList();
+
+    setState(() {
+      _textChallenge = 'Challenge 19';
+      _result = result.toString();
     });
   }
 
