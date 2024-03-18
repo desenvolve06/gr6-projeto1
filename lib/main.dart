@@ -4,7 +4,6 @@ import 'dart:math';
 
 import 'package:desenvolvegr6/exercises/exercise_11.dart';
 import 'package:desenvolvegr6/exercises/exercise_2.dart';
-import 'package:desenvolvegr6/exercises/exercise_5.dart';
 import 'package:desenvolvegr6/exercises/exercise_8.dart';
 
 import 'package:flutter/material.dart';
@@ -14,6 +13,7 @@ import 'exercises/exercise_18.dart';
 import 'exercises/exercise_3.dart';
 import 'exercises/exercise_4.dart';
 import 'exercises/exercise_5.dart';
+import 'exercises/exercise_6.dart';
 import 'exercises/exercise_9.dart';
 
 void main() {
@@ -127,7 +127,16 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       String result = checkTwoNumbers(randomNumberA, randomNumberB);
       _textChallenge = 'Challenge 5';
-      result = result.toString();
+      _result = result.toString();
+    });
+  }
+
+ void _challenge6() {
+    int value = 100;
+    setState(() {
+      String result = checkpreviousnext(value);
+      _textChallenge = 'Challenge 6';
+      _result = result.toString();
     });
   }
 
@@ -251,7 +260,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge9,
+        onPressed: _challenge6,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
