@@ -1,10 +1,20 @@
+// ignore: unused_import
+import 'dart:ffi';
 import 'dart:math';
 
+import 'package:desenvolvegr6/exercises/exercise_11.dart';
 import 'package:desenvolvegr6/exercises/exercise_2.dart';
+import 'package:desenvolvegr6/exercises/exercise_8.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'exercises/exercise_18.dart';
 import 'exercises/exercise_3.dart';
+import 'exercises/exercise_4.dart';
+import 'exercises/exercise_5.dart';
+import 'exercises/exercise_6.dart';
+import 'exercises/exercise_9.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +29,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
+// This is the theme of your application.
         //
         // TRY THIS: Try running your application with "flutter run". You'll see
         // the application has a purple toolbar. Then, without quitting the app,
@@ -65,6 +75,20 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge1() {
+    setState(() {
+      _textChallenge = "Challenge 1";
+      int num1 = random.nextInt(10);
+      int num2 = random.nextInt(10);
+      if (num1 == num2) {
+        _result = "The numbers are the same";
+      } else {
+        String biggerValue = max(num1, num2).toString();
+        _result = "The bigger value between $num1 and $num2 is: $biggerValue ";
+      }
+    });
+  }
+
   void _challenge2() {
     int a = random.nextInt(10);
     int b = random.nextInt(10);
@@ -85,7 +109,38 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _challenge7() {
+  void _challenge4() {
+    int minNumber = -100;
+    int maxNumber = 100;
+    setState(() {
+      String result = checknumber(minNumber, maxNumber);
+      _textChallenge = 'Challenge 4';
+      _result = result.toString();
+    });
+  }
+
+  void _challenge5() {
+    int numberA = 5;
+    int numberB = 5;
+    int randomNumberA = random.nextInt(numberA);
+    int randomNumberB = random.nextInt(numberB);
+    setState(() {
+      String result = checkTwoNumbers(randomNumberA, randomNumberB);
+      _textChallenge = 'Challenge 5';
+      _result = result.toString();
+    });
+  }
+
+ void _challenge6() {
+    int value = 100;
+    setState(() {
+      String result = checkpreviousnext(value);
+      _textChallenge = 'Challenge 6';
+      _result = result.toString();
+    });
+  }
+  
+    void _challenge7() {
     double salarioMinimo = 1412.00;
     double salarioUsuario = 2500.00;
 
@@ -99,10 +154,103 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge8() {
+    int value1 = random.nextInt(100);
+    int value2 = random.nextInt(100);
+    int value3 = random.nextInt(100);
+
+    setState(() {
+      String result = descendingOrder(value1, value2, value3);
+      _textChallenge = 'Challenge 8';
+      _result = result;
+    });
+  }
+
+  void _challenge9() {
+    setState(() {
+      List<dynamic> result =
+          challenge9(); // Chamando a função e recebendo a média e o status
+      double media = result[0]; // Obtendo a média da lista retornada
+      String status = result[1]; // Obtendo o status da lista retornada
+      _textChallenge = 'Challenge 9';
+      _result =
+          'Média: $media\nStatus: $status'; // Atualizando o valor de _result
+    });
+  }
+
+  void _challenge11() {
+    int numero = random.nextInt(10);
+    setState(() {
+      String result = showMultiplicationTable(numero);
+      _textChallenge = 'Challenge 11';
+      _result = result.toString();
+    });
+  }
+
+  void _challenge12() {
+    List<int> numbers = [1, 2, 3];
+
+    List<int> squares = [];
+
+    for (int number in numbers) {
+      squares.add(number * number);
+    }
+
+    setState(() {
+      _textChallenge = 'Challenge 12';
+      _result = squares.toString();   
+    });
+  }
+  
+    void _challenge15(){
+    int limit = Random().nextInt(10);
+    List<int> numbers = [];
+  for (int i = 0; i <= limit; i++) {
+    numbers.add(i);
+  }
+    setState(() {
+      _result = "The generated limit is ${limit.toString()} and the list is: ${numbers.toString()}";
+    });
+  }
+
+  void _challenge16(String palavra) {
+    List<String> palavraArray = palavra.toLowerCase().split('');
+    for (int i = 0; i < palavraArray.length; i++) {
+      if (palavraArray[i] == " ") {
+        palavraArray.removeAt(i);
+      }
+    }
+    List<String> palavraAoContrario = palavraArray.reversed.toList();
+
+    setState(() {
+      _textChallenge = "Challenge 16";
+      if (palavraAoContrario.join('') == palavraArray.join('')) {
+        _result = "A palavra ou frase $palavra é Palíndromo";
+      } else {
+        _result = "A palavra ou frase $palavra não é Palíndromo";
+      }
+    });
+  }
+
+
+  void _challenge18() {
+    setState(() {
+      List<dynamic> result =
+          challenge18(); // Chamando a função e recebendo a palavra, frase e resultado
+      String palavra = result[0]; // Obtendo a palavra da lista retornada
+      String frase = result[1]; // Obtendo a frase da lista retornada
+      int resultado = result[2]; // Obtendo o resultado da lista retornada
+      _textChallenge = 'Challenge 18';
+      _result =
+          'Palavra: $palavra\nFrase: $frase\nOcorrências: $resultado'; // Atualizando o valor de _result
+    });
+  }
+
   Color darkGreenColor = const Color(0xFF006400);
+  
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
+// This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
     // The Flutter framework has been optimized to make rerunning build methods
@@ -110,19 +258,19 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
+// TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
         backgroundColor: darkGreenColor,
-        // Here we take the value from the MyHomePage object that was created by
+// Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
+// Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
+// Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
           //
