@@ -1,7 +1,11 @@
+// ignore: unused_import
+import 'dart:ffi';
 import 'dart:math';
 
 import 'package:desenvolvegr6/exercises/exercise_11.dart';
 import 'package:desenvolvegr6/exercises/exercise_2.dart';
+import 'package:desenvolvegr6/exercises/exercise_8.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -97,6 +101,18 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge8() {
+    int value1 = random.nextInt(100);
+    int value2 = random.nextInt(100);
+    int value3 = random.nextInt(100);
+
+    setState(() {
+      String result = descendingOrder(value1, value2, value3);
+      _textChallenge = 'Challenge 8';
+      _result = result;
+    });
+  }
+
   void _challenge11() {
     int numero = random.nextInt(10);
     setState(() {
@@ -106,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  Color darkGreenColor = const Color(0xFF006400);
+  Color darkGreenColor = Color.fromARGB(255, 7, 231, 175);
   @override
   Widget build(BuildContext context) {
 // This method is rerun every time setState is called, for instance as done
@@ -159,7 +175,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge11,
+        onPressed: _challenge8,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
