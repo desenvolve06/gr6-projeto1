@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'exercises/exercise_3.dart';
 import 'exercises/exercise_4.dart';
 import 'exercises/exercise_5.dart';
+import 'exercises/exercise_9.dart';
 
 void main() {
   runApp(const MyApp());
@@ -99,19 +100,30 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-
   void _challenge5() {
     int numberA = 5;
     int numberB = 5;
-    int randomNumberA =  random.nextInt(numberA) ;
-    int randomNumberB =  random.nextInt(numberB) ;
+    int randomNumberA = random.nextInt(numberA);
+    int randomNumberB = random.nextInt(numberB);
     setState(() {
       String result = checkTwoNumbers(randomNumberA, randomNumberB);
       _textChallenge = 'Challenge 5';
       result = result.toString();
     });
   }
-  
+
+  void _challenge9() {
+    setState(() {
+      List<dynamic> result =
+          challenge9(); // Chamando a função e recebendo a média e o status
+      double media = result[0]; // Obtendo a média da lista retornada
+      String status = result[1]; // Obtendo o status da lista retornada
+      _textChallenge = 'Challenge 9';
+      _result =
+          'Média: $media\nStatus: $status'; // Atualizando o valor de _result
+    });
+  }
+
   void _challenge11() {
     int numero = random.nextInt(10);
     setState(() {
@@ -174,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge5,
+        onPressed: _challenge9,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
