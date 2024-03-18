@@ -1,5 +1,3 @@
-import 'dart:math';
-
 String checkTwoNumbers(int randomNumberA,int randomNumberB) {
   
   String result = '';  

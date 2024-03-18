@@ -95,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
     int maxNumber = 100;
     setState(() {
       String result = checknumber(minNumber, maxNumber);
-      _textChallenge = 'Challenge 3';
+      _textChallenge = 'Challenge 4';
       _result = result.toString();
     });
   }
