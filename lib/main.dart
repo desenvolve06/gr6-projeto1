@@ -150,6 +150,17 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+    void _challenge15(){
+    int limit = Random().nextInt(10);
+    List<int> numbers = [];
+  for (int i = 0; i <= limit; i++) {
+    numbers.add(i);
+  }
+    setState(() {
+      _result = "The generated limit is ${limit.toString()} and the list is: ${numbers.toString()}";
+    });
+  }
+
   void _challenge16(String palavra) {
   List<String> palavraArray = palavra.toLowerCase().split('');
   for (int i = 0; i < palavraArray.length; i++) {
@@ -222,7 +233,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _challenge16("A cara rajada da jararaca"),
+        onPressed: _challenge15,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
