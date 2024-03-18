@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:desenvolvegr6/exercises/exercise_11.dart';
+import 'package:desenvolvegr6/exercises/exercise_14.dart';
 import 'package:desenvolvegr6/exercises/exercise_2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -106,6 +107,15 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge14() {
+    List<int> randomNumbers = generateRandomNumbers(10);
+    setState(() {
+      String result = findMinMax(randomNumbers);
+      _textChallenge = 'Challenge 14';
+      _result = result.toString();
+    });
+  }
+
   Color darkGreenColor = const Color(0xFF006400);
   @override
   Widget build(BuildContext context) {
@@ -159,7 +169,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge11,
+        onPressed: _challenge14,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
