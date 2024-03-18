@@ -3,9 +3,9 @@ import 'dart:ffi';
 import 'dart:math';
 
 import 'package:desenvolvegr6/exercises/exercise_11.dart';
+import 'package:desenvolvegr6/exercises/exercise_17.dart';
 import 'package:desenvolvegr6/exercises/exercise_2.dart';
 import 'package:desenvolvegr6/exercises/exercise_8.dart';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -131,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
- void _challenge6() {
+  void _challenge6() {
     int value = 100;
     setState(() {
       String result = checkpreviousnext(value);
@@ -173,14 +173,15 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-    void _challenge15(){
+  void _challenge15() {
     int limit = Random().nextInt(10);
     List<int> numbers = [];
-  for (int i = 0; i <= limit; i++) {
-    numbers.add(i);
-  }
+    for (int i = 0; i <= limit; i++) {
+      numbers.add(i);
+    }
     setState(() {
-      _result = "The generated limit is ${limit.toString()} and the list is: ${numbers.toString()}";
+      _result =
+          "The generated limit is ${limit.toString()} and the list is: ${numbers.toString()}";
     });
   }
 
@@ -203,6 +204,17 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge17() {
+    int value = random.nextInt(100);
+    setState(() {
+      if (isPrime(value)) {
+        _result = '$value is PRIME.';
+      } else {
+        _result = '$value is not a prime!';
+      }
+      _textChallenge = 'Challenge 17';
+    });
+  }
 
   void _challenge18() {
     setState(() {
@@ -218,7 +230,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Color darkGreenColor = const Color(0xFF006400);
-  
+
   @override
   Widget build(BuildContext context) {
 // This method is rerun every time setState is called, for instance as done
@@ -271,7 +283,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge6,
+        onPressed: _challenge17,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
