@@ -172,15 +172,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _challenge14() {
-    List<int> randomNumbers = generateRandomNumbers(10);
-    setState(() {
-      String result = findMinMax(randomNumbers);
-      _textChallenge = 'Challenge 14';
-      _result = result.toString();
-    });
-  }
-
   void _challenge12() {
     List<int> numbers = [1, 2, 3];
 
@@ -193,6 +184,15 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _textChallenge = 'Challenge 12';
       _result = squares.toString();
+    });
+  }
+
+  void _challenge14() {
+    List<int> randomNumbers = generateRandomNumbers(10);
+    setState(() {
+      String result = findMinMax(randomNumbers);
+      _textChallenge = 'Challenge 14';
+      _result = result.toString();
     });
   }
 
