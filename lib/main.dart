@@ -10,6 +10,7 @@ import 'package:desenvolvegr6/exercises/exercise_8.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'exercises/exercise_18.dart';
 import 'exercises/exercise_3.dart';
 import 'exercises/exercise_4.dart';
 import 'exercises/exercise_5.dart';
@@ -182,7 +183,22 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+
+  void _challenge18() {
+    setState(() {
+      List<dynamic> result =
+          challenge18(); // Chamando a função e recebendo a palavra, frase e resultado
+      String palavra = result[0]; // Obtendo a palavra da lista retornada
+      String frase = result[1]; // Obtendo a frase da lista retornada
+      int resultado = result[2]; // Obtendo o resultado da lista retornada
+      _textChallenge = 'Challenge 18';
+      _result =
+          'Palavra: $palavra\nFrase: $frase\nOcorrências: $resultado'; // Atualizando o valor de _result
+    });
+  }
+
   Color darkGreenColor = const Color(0xFF006400);
+  
   @override
   Widget build(BuildContext context) {
 // This method is rerun every time setState is called, for instance as done
