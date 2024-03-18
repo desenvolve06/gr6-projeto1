@@ -9,6 +9,7 @@ import 'package:desenvolvegr6/exercises/exercise_8.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'exercises/exercise_14.dart';
 import 'exercises/exercise_18.dart';
 import 'exercises/exercise_3.dart';
 import 'exercises/exercise_4.dart';
@@ -201,6 +202,15 @@ class _MyHomePageState extends State<MyHomePage> {
       _result = squares.toString();   
     });
   }
+
+  void _challenge14() {
+    List<int> randomNumbers = generateRandomNumbers(10);
+    setState(() {
+      String result = findMinMax(randomNumbers);
+      _textChallenge = 'Challenge 14';
+      _result = result.toString();
+    });
+  }
   
     void _challenge15(){
     int limit = Random().nextInt(10);
@@ -300,7 +310,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge7,
+        onPressed: _challenge14,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
