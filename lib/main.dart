@@ -13,6 +13,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'exercises/exercise_3.dart';
 import 'exercises/exercise_4.dart';
 import 'exercises/exercise_5.dart';
+import 'exercises/exercise_9.dart';
 
 void main() {
   runApp(const MyApp());
@@ -73,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-    void _challenge1() {
+  void _challenge1() {
     setState(() {
       _textChallenge = "Challenge 1";
       int num1 = random.nextInt(10);
@@ -141,6 +142,18 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge9() {
+    setState(() {
+      List<dynamic> result =
+          challenge9(); // Chamando a função e recebendo a média e o status
+      double media = result[0]; // Obtendo a média da lista retornada
+      String status = result[1]; // Obtendo o status da lista retornada
+      _textChallenge = 'Challenge 9';
+      _result =
+          'Média: $media\nStatus: $status'; // Atualizando o valor de _result
+    });
+  }
+
   void _challenge11() {
     int numero = random.nextInt(10);
     setState(() {
@@ -151,24 +164,24 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _challenge16(String palavra) {
-  List<String> palavraArray = palavra.toLowerCase().split('');
-  for (int i = 0; i < palavraArray.length; i++) {
-    if (palavraArray[i] == " ") {
-      palavraArray.removeAt(i);
+    List<String> palavraArray = palavra.toLowerCase().split('');
+    for (int i = 0; i < palavraArray.length; i++) {
+      if (palavraArray[i] == " ") {
+        palavraArray.removeAt(i);
+      }
     }
-  }
-  List<String> palavraAoContrario = palavraArray.reversed.toList();
+    List<String> palavraAoContrario = palavraArray.reversed.toList();
 
-  setState(() {
-    _textChallenge = "Challenge 16";
-    if (palavraAoContrario.join('') == palavraArray.join('')) {
-    _result = "A palavra ou frase $palavra é Palíndromo";
-  } else {
-    _result = "A palavra ou frase $palavra não é Palíndromo";
+    setState(() {
+      _textChallenge = "Challenge 16";
+      if (palavraAoContrario.join('') == palavraArray.join('')) {
+        _result = "A palavra ou frase $palavra é Palíndromo";
+      } else {
+        _result = "A palavra ou frase $palavra não é Palíndromo";
+      }
+    });
   }
-  });
 
-}
   Color darkGreenColor = const Color(0xFF006400);
   @override
   Widget build(BuildContext context) {
@@ -222,7 +235,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _challenge16("A cara rajada da jararaca"),
+        onPressed: _challenge9,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
