@@ -1,8 +1,12 @@
+// ignore: unused_import
+import 'dart:ffi';
 import 'dart:math';
 
 import 'package:desenvolvegr6/exercises/exercise_11.dart';
 import 'package:desenvolvegr6/exercises/exercise_2.dart';
 import 'package:desenvolvegr6/exercises/exercise_5.dart';
+import 'package:desenvolvegr6/exercises/exercise_8.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -69,6 +73,20 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+    void _challenge1() {
+    setState(() {
+      _textChallenge = "Challenge 1";
+      int num1 = random.nextInt(10);
+      int num2 = random.nextInt(10);
+      if (num1 == num2) {
+        _result = "Os numeros são iguais";
+      } else {
+        String maiorValor = max(num1, num2).toString();
+        _result = "O maior valor entre $num1 e $num2 é: $maiorValor ";
+      }
+    });
+  }
+
   void _challenge2() {
     int a = random.nextInt(10);
     int b = random.nextInt(10);
@@ -99,19 +117,30 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-
   void _challenge5() {
     int numberA = 5;
     int numberB = 5;
-    int randomNumberA =  random.nextInt(numberA) ;
-    int randomNumberB =  random.nextInt(numberB) ;
+    int randomNumberA = random.nextInt(numberA);
+    int randomNumberB = random.nextInt(numberB);
     setState(() {
       String result = checkTwoNumbers(randomNumberA, randomNumberB);
       _textChallenge = 'Challenge 5';
       result = result.toString();
     });
   }
-  
+
+  void _challenge8() {
+    int value1 = random.nextInt(100);
+    int value2 = random.nextInt(100);
+    int value3 = random.nextInt(100);
+
+    setState(() {
+      String result = descendingOrder(value1, value2, value3);
+      _textChallenge = 'Challenge 8';
+      _result = result;
+    });
+  }
+
   void _challenge11() {
     int numero = random.nextInt(10);
     setState(() {
@@ -121,7 +150,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  
   void _challenge16(String palavra) {
   List<String> palavraArray = palavra.toLowerCase().split('');
   for (int i = 0; i < palavraArray.length; i++) {
@@ -195,6 +223,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _challenge16("A cara rajada da jararaca"),
+        onPressed: _challenge1,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
