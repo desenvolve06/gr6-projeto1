@@ -9,6 +9,7 @@ import 'package:desenvolvegr6/exercises/exercise_8.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'exercises/exercise_10.dart';
 import 'exercises/exercise_18.dart';
 import 'exercises/exercise_3.dart';
 import 'exercises/exercise_4.dart';
@@ -131,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
- void _challenge6() {
+  void _challenge6() {
     int value = 100;
     setState(() {
       String result = checkpreviousnext(value);
@@ -139,8 +140,8 @@ class _MyHomePageState extends State<MyHomePage> {
       _result = result.toString();
     });
   }
-  
-    void _challenge7() {
+
+  void _challenge7() {
     double salarioMinimo = 1412.00;
     double salarioUsuario = 2500.00;
 
@@ -178,6 +179,17 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge10() {
+    setState(() {
+      List<dynamic> result = challenge10();
+      String nome = result[0];
+      int idade = result[1];
+      String mensagem = result[2];
+      _textChallenge = 'Challenge 10';
+      _result = '$nome - $mensagem';
+    });
+  }
+
   void _challenge11() {
     int numero = random.nextInt(10);
     setState(() {
@@ -198,18 +210,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
     setState(() {
       _textChallenge = 'Challenge 12';
-      _result = squares.toString();   
+      _result = squares.toString();
     });
   }
-  
-    void _challenge15(){
+
+  void _challenge15() {
     int limit = Random().nextInt(10);
     List<int> numbers = [];
-  for (int i = 0; i <= limit; i++) {
-    numbers.add(i);
-  }
+    for (int i = 0; i <= limit; i++) {
+      numbers.add(i);
+    }
     setState(() {
-      _result = "The generated limit is ${limit.toString()} and the list is: ${numbers.toString()}";
+      _result =
+          "The generated limit is ${limit.toString()} and the list is: ${numbers.toString()}";
     });
   }
 
@@ -231,7 +244,6 @@ class _MyHomePageState extends State<MyHomePage> {
       }
     });
   }
-
 
   void _challenge18() {
     setState(() {
@@ -280,7 +292,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Color darkGreenColor = const Color(0xFF006400);
-  
+
   @override
   Widget build(BuildContext context) {
 // This method is rerun every time setState is called, for instance as done
@@ -333,8 +345,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge19,
-
+        onPressed: _challenge10,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
