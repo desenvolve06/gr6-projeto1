@@ -168,19 +168,19 @@ class _MyHomePageState extends State<MyHomePage> {
         _result = "A palavra ou frase $palavra não é Palíndromo";
       }
     });
+  }
 
-    void _challenge18() {
-      setState(() {
-        List<dynamic> result =
-            challenge18(); // Chamando a função e recebendo a palavra, frase e resultado
-        String palavra = result[0]; // Obtendo a palavra da lista retornada
-        String frase = result[1]; // Obtendo a frase da lista retornada
-        int resultado = result[2]; // Obtendo o resultado da lista retornada
-        _textChallenge = 'Challenge 18';
-        _result =
-            'Palavra: $palavra\nFrase: $frase\nOcorrências: $resultado'; // Atualizando o valor de _result
-      });
-    }
+  void _challenge18() {
+    setState(() {
+      List<dynamic> result =
+          challenge18(); // Chamando a função e recebendo a palavra, frase e resultado
+      String palavra = result[0]; // Obtendo a palavra da lista retornada
+      String frase = result[1]; // Obtendo a frase da lista retornada
+      int resultado = result[2]; // Obtendo o resultado da lista retornada
+      _textChallenge = 'Challenge 18';
+      _result =
+          'Palavra: $palavra\nFrase: $frase\nOcorrências: $resultado'; // Atualizando o valor de _result
+    });
   }
 
   Color darkGreenColor = const Color(0xFF006400);
