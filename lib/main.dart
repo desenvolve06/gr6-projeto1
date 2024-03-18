@@ -14,6 +14,7 @@ import 'exercises/exercise_18.dart';
 import 'exercises/exercise_3.dart';
 import 'exercises/exercise_4.dart';
 import 'exercises/exercise_5.dart';
+import 'exercises/exercise_9.dart';
 
 void main() {
   runApp(const MyApp());
@@ -142,6 +143,18 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _challenge9() {
+    setState(() {
+      List<dynamic> result =
+          challenge9(); // Chamando a função e recebendo a média e o status
+      double media = result[0]; // Obtendo a média da lista retornada
+      String status = result[1]; // Obtendo o status da lista retornada
+      _textChallenge = 'Challenge 9';
+      _result =
+          'Média: $media\nStatus: $status'; // Atualizando o valor de _result
+    });
+  }
+
   void _challenge11() {
     int numero = random.nextInt(10);
     setState(() {
@@ -170,6 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+
   void _challenge18() {
     setState(() {
       List<dynamic> result =
@@ -184,6 +198,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Color darkGreenColor = const Color(0xFF006400);
+  
   @override
   Widget build(BuildContext context) {
 // This method is rerun every time setState is called, for instance as done
@@ -236,7 +251,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _challenge18,
+        onPressed: _challenge9,
         tooltip: 'Increment',
         child: const Icon(Icons.screen_share_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
